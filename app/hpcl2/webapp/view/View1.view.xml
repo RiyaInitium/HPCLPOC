@@ -10,7 +10,7 @@
 			tooltip="Please upload the file"
 			uploadComplete="handleUploadComplete"/>
 		<Button
-			text="Upload Files"
+			text="Upload Files test"
 			press="onPress" id="uploadbtn"/>
             <Button   
 			text="Download File"
