@@ -1,0 +1,1 @@
+using GST as service from '../../srv/service';

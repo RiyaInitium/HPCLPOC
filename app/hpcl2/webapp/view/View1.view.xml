@@ -1,0 +1,20 @@
+<mvc:View controllerName="hpcl2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+         <content>
+        <u:FileUploader
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			tooltip="Please upload the file"
+			uploadComplete="handleUploadComplete"/>
+		<Button
+			text="Upload File"
+			press="onPress" id="uploadbtn"/>
+            <Button
+			text="Download File"
+			press="onDownload" id="uploadownload" visible="{productsModel>/isVisible}"/>
+          </content>
+    </Page>
+</mvc:View>

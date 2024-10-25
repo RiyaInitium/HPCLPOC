@@ -1,25 +1,25 @@
-// Define a custom type for an array of strings
+using {GSTP as my} from '../db/schema';
+
 
 service GST @(path: '/browse') {
 
-    // action calculatedata(schemeid : String,
-    //                      schemename : String,
-    //                      skuid : String,
-    //                      regioncode : String,
-    //                      empcode : String,
-    //                      minsales : Decimal,
-    //                      percentile : Decimal,
-    //                      from_String : String,
-    //                      to_String : String,
-    //                      icid : Integer) returns String;
 
-     //action calculatedata(Excelbase64 : LargeString) returns String;
+     //action excelExtract(Excelbase64 : LargeString, Sheet1 : array of tempdata1) returns String; 
+     action excelExtract(Excelbase64 : LargeString) returns String; 
+
      action calculatedata(ExcelData : array of tempdata) returns String;
-
-
      action Getdata() returns String;
 
 }
+
+// type tempdata1{
+//         OrderNumber: String;
+//         OrderAmount:Decimal;
+//         OrderDate: Decimal;
+//         ShippingCountry: String;
+//         ExpDelDate: Decimal;
+//         OrderStat: String
+// }
  type tempdata{
         ReconciliationType: String;
         ReconciliationSubType: String;
@@ -110,4 +110,5 @@ service GST @(path: '/browse') {
 
  
  
+
 

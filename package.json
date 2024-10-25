@@ -8,6 +8,7 @@
   "dependencies": {
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
+    "@sap/xssec": "^4",
     "express": "^4",
     "xlsx": "^0.18.5"
   },
@@ -15,15 +16,25 @@
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^7",
     "@sap/eslint-plugin-cds": "^3",
-    "eslint": "^9"
+    "@sap/ux-specification": "^1.120.17",
+    "eslint": "^9",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-hpcl": "cds watch --open hpcl/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy GSTPOC --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-hpcl2": "cds watch --open hpcl2/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
       "db": "hana",
-      "auth": "mocked"
+      "auth": "mocked",
+      "[prduction]": {
+        "auth": "xsuaa"
+      }
     }
   }
 }
