@@ -12,7 +12,7 @@
 		<Button
 			text="Upload File"
 			press="onPress" id="uploadbtn"/>
-            <Button
+            <Button   
 			text="Download File"
 			press="onDownload" id="uploadownload" visible="{productsModel>/isVisible}"/>
           </content>
